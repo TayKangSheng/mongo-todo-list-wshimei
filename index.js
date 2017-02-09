@@ -1,7 +1,12 @@
 const todos = require('./controllers/todos_controller.js')
+// const Todo = require('./models/todo')
 const readline = require('readline')
 const rl = readline.createInterface(process.stdin, process.stdout)
 const prefix = '> '
+
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/my-todo-list')
+mongoose.Promise = global.Promise
 
 // This helper function simply console logs all of the supported commands
 function displayHelp () {
@@ -41,6 +46,9 @@ rl.on('line', (line) => {
       break
     case 'destroy':
       todos.destroy(words[1])
+      break
+    case 'destroyAll':
+      todos.destroyAll()
       break
     case 'quit':
       rl.close()
