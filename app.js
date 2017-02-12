@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 5000
 
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://wshimei:Ga16012017@ds149049.mlab.com:49049/todos')
