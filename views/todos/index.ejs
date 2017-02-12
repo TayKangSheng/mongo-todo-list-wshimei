@@ -6,5 +6,12 @@
   </head>
   <body>
     <h1>Index Todo List</h1>
+      <ul>
+        <%allTodos.forEach(function(todo) {%>
+        <li>
+          <a href="/todos/:_id"><%=todo.name%></a>
+        </li>
+        <% }) %>
+      </ul>
   </body>
 </html>
