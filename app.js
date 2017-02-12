@@ -1,5 +1,10 @@
-const todos = require('./controllers/todos_controller.js')
-// const Todo = require('./models/todo')
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000
+
+const todosControl = require('./controllers/todos_controller.js')
+const TodoSchema = require('./models/todo')
+
 const readline = require('readline')
 const rl = readline.createInterface(process.stdin, process.stdout)
 const prefix = '> '
@@ -33,22 +38,22 @@ rl.on('line', (line) => {
   switch (words[0]) {
     case 'create':
       // we use the 2nd, 3rd & 4th words the user input as the name, description and completed status of our new todo
-      todos.create({name: words[1], description: words[2], completed: words[3]})
+      todosControl.create({name: words[1], description: words[2], completed: words[3]})
       break
     case 'list':
-      todos.list()
+      todosControl.list()
       break
     case 'show':
-      todos.show(words[1])
+      todosControl.show(words[1])
       break
     case 'update':
-      todos.update(words[1], {name: words[2], description: words[3], completed: words[4]})
+      todosControl.update(words[1], {name: words[2], description: words[3], completed: words[4]})
       break
     case 'destroy':
-      todos.destroy(words[1])
+      todosControl.destroy(words[1])
       break
     case 'destroyAll':
-      todos.destroyAll()
+      todosControl.destroyAll()
       break
     case 'quit':
       rl.close()
