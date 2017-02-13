@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 4000
 
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://wshimei:Ga16012017@ds149049.mlab.com:49049/todos')
 mongoose.Promise = global.Promise
 
-const todosControl = require('./controllers/todos_controller.js')
+// const todosControl = require('./controllers/todos_controller.js')
 
 const TodoSchema = require('./models/todo')
 
