@@ -31,7 +31,7 @@ app.get('/todos', function (req, res) {
 })
 
 app.get('/todos/:_id', function (req, res) {
-  TodoSchema.findOne({_id: req.params._id}, function (err, oneTodo) {
+  TodoSchema.findOne({id: req.params.id}, function (err, oneTodo) {
     if (err) {
       console.error(err)
       return
